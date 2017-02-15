@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\icon_new.png",
+        "source": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_new.png"
+    },
+    {
         "merged": "C:\\Users\\Jason\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\tab_dropbox.png",
         "source": "C:\\Users\\Jason\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\tab_dropbox.png"
     },
@@ -8,7 +12,15 @@
         "source": "C:\\Users\\Jason\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_new.png"
     },
     {
+        "merged": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\tab_dropbox.png",
+        "source": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\tab_dropbox.png"
+    },
+    {
         "merged": "C:\\Users\\Jason\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\Jason\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Diske\\Documents\\GitHub\\DropboxTest\\dropboxChooserSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
     }
 ]

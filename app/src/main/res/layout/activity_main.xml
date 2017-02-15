@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,16 +12,128 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pickle.pixel.dropboxtest.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/chooser_button"
-        android:text="Import" />
-</RelativeLayout>
+    <TableRow>
+        <TextView
+            android:text="Create New Tileset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:id="@+id/msgCreateNewTileset"
+            android:textStyle="normal|bold"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="#000000"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Name:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:id="@+id/msgTilesetName" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="-Enter Tileset Name-"
+            android:ems="10"
+            android:id="@+id/editTilesetName"
+            android:clickable="false"
+            android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Sprite Sheet:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/msgSpriteSheet" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="-Select Sprite Sheet-"
+            android:ems="10"
+            android:id="@+id/editSpriteSheet"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:enabled="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnImportSprite"
+            android:text="Import" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="Tile Sheet:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/msgTileSheet" />
+    </TableRow>
+
+    <TableRow>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="-Select Tile Sheet-"
+            android:ems="10"
+            android:id="@+id/editTileSheet"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:enabled="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnImportTile"
+            android:text="Import" />
+    </TableRow>
+
+    <TableRow
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="#000000"
+            />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/btnCreateTileset"
+            android:text="Create"
+            />
+    </TableRow>
+</TableLayout>
+
+</ScrollView>
