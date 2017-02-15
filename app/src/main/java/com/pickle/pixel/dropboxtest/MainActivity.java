@@ -1,60 +1,59 @@
 package com.pickle.pixel.dropboxtest;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.dropbox.core.DbxException;
-import com.dropbox.core.DbxRequestConfig;
-import com.dropbox.core.v2.DbxClientV2;
-import com.dropbox.core.v2.files.FileMetadata;
-import com.dropbox.core.v2.files.ListFolderResult;
-import com.dropbox.core.v2.files.Metadata;
-import com.dropbox.core.v2.users.FullAccount;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import com.dropbox.chooser.android.DbxChooser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String ACCESS_TOKEN = "Z4zFAHp5MtAAAAAAAAAAC143TZkWjqDNC3_Ib6zLMdk87WPjlVctA3y8b4AqTZuB";
+    static final int DBX_CHOOSER_REQUEST = 0;  // You can change this if needed
+
+    private static final String APP_KEY = "ziz3befif8nlh3p";
+
+    private Button mChooserButton;
+    private DbxChooser mChooser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try {
+        mChooser = new DbxChooser(APP_KEY);
 
-            DbxRequestConfig config = new DbxRequestConfig("dropbox/java-tutorial", "en_US");
-            DbxClientV2 client = new DbxClientV2(config, ACCESS_TOKEN);
-
-            // Get current account info
-            FullAccount account = client.users().getCurrentAccount();
-            System.out.println(account.getName().getDisplayName());
-
-            ListFolderResult result = client.files().listFolder("");
-            while (true) {
-                for (Metadata metadata : result.getEntries()) {
-                    System.out.println(metadata.getPathLower());
-                }
-
-                if (!result.getHasMore()) {
-                    break;
-                }
-
-                result = client.files().listFolderContinue(result.getCursor());
-
-                // Upload "test.txt" to Dropbox
-                try (InputStream in = new FileInputStream("test.txt")) {
-                    FileMetadata metadata = client.files().uploadBuilder("/test.txt")
-                            .uploadAndFinish(in);
-                }catch(IOException e){
-
-                }
+        mChooserButton = (Button) findViewById(R.id.chooser_button);
+        mChooserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mChooser.forResultType(DbxChooser.ResultType.PREVIEW_LINK)
+                        .launch(MainActivity.this, DBX_CHOOSER_REQUEST);
             }
-        }catch(DbxException e){
+        });
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == DBX_CHOOSER_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                DbxChooser.Result result = new DbxChooser.Result(data);
+                Log.d("main", "Link to selected file: " + result.getLink());
+
+                // Handle the result
+                Log.d("main", "Name of File: " + result.getName());
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                // Cancelled by the user.
+                Log.d("main", "Cancelled by User");
+            } else {
+                // Failed
+                Log.d("main", "Failed for some reason");
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
